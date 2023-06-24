@@ -11,17 +11,138 @@
   <body>
     <header>
       <nav>
-        <ul>
+        <ul class="navBar">
           <li><a href="index.html">Home</a></li>
           <li><a href="experience.html">Experience</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li class="btncontact"><a href="contact.html">Contact us</a></li>
         </ul>
       </nav>
     </header>
+
     <section class="home">
-      <h1>Welcome to My Portfolio</h1>
-      <p>Suwichada pongkanmoon</p>
-      <img src="/image/S__14704643.jpg" alt="Image Description" />
+      <div class="content">
+        <div class="containertextcontent">
+          <div class="textcontent">
+            <p style="font-size: 60px">Hi I'm Suwichada</p>
+            <p style="font-size: 14px">
+              นางสาวสุวิชาดา ปงกันมูล นักศึกษามหาวิทยาลัยเชียงใหม่
+            </p>
+            <p style="font-size: 14px">คณะวิศวกรรมศาสตร์ สาขาคอมพิวเตอร์</p>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
+            <p class="textContentAtimage3" style="font-size: 20px">ทักษะ</p>
+          </div>
+        </div>
+
+        <div class="containerImage">
+          <img
+            class="image"
+            src="/image/S__14704643.png"
+            alt="Image Description"
+            style="
+              display: block;
+              width: 500px;
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              margin-right: 0;
+              margin-bottom: 0;
+              z-index: 1;
+            "
+          />
+        </div>
+        <div class="imageBG">
+          <h1 class="textContentAtimage1" style="font-size: 45px">
+            Welcome to
+          </h1>
+          <h1 class="textContentAtimage2" style="font-size: 25px">
+            My Portfolio
+          </h1>
+        </div>
+      </div>
+
+      <div class="slider-container">
+        <div class="card-slider">
+          <div class="card">
+            <div class="card-skill">
+              <img class="card-image" src="/image/Icon.png" alt="Card Image" />
+              <div class="card-content">
+                <h3>Figma</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-skill">
+              <img
+                class="card-image"
+                src="/image/ISO_C++_Logo.svg.png"
+                alt="Card Image"
+              />
+              <div class="card-content">
+                <h3>C++</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-skill">
+              <img
+                class="card-image"
+                src="/image/HTML5_Logo.svg"
+                alt="Card Image"
+              />
+              <div class="card-content">
+                <h3>HTML</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-skill">
+              <img
+                class="card-image"
+                src="/image/css3-logo-png-transparent.png"
+                alt="Card Image"
+              />
+              <div class="card-content">
+                <h3>CSS</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn-prev">Click Me</button>
+      <!--<button class="btn-next">Next</button>-->
     </section>
+    <script>
+      const cardSlider = document.querySelector(".card-slider");
+      const cards = document.querySelectorAll(".card");
+      const cardWidth = cards[0].offsetWidth;
+      let currentIndex = 0;
+
+      function changeCard(direction) {
+        if (direction === "prev") {
+          currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        } else if (direction === "next") {
+          currentIndex = (currentIndex + 1) % cards.length;
+        }
+
+        const translateX = -currentIndex * cardWidth;
+        cardSlider.style.transform = `translateX(${translateX}px)`;
+      }
+
+      document.querySelector(".btn-prev").addEventListener("click", () => {
+        changeCard("prev");
+      });
+
+      document.querySelector(".btn-next").addEventListener("click", () => {
+        changeCard("next");
+      });
+    </script>
   </body>
 </html>
